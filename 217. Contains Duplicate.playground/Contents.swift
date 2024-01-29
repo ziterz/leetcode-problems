@@ -2,6 +2,7 @@
 
 import UIKit
 
+// Ver 1
 //class Solution {
 //  func containsDuplicate(_ nums: [Int]) -> Bool {
 //    for i in 0..<nums.count {
@@ -17,9 +18,40 @@ import UIKit
 //  }
 //}
 
+// Ver 2
+//class Solution {
+//  func containsDuplicate(_ nums: [Int]) -> Bool {
+//    return Set(nums).count != nums.count
+//  }
+//}
+
+// Ver 3
+//class Solution {
+//  func containsDuplicate(_ nums: [Int]) -> Bool {
+//    var unique = Set<Int>()
+//
+//    for val in nums {
+//      if unique.contains(val) { return true }
+//      else { unique.insert(val) }
+//    }
+//    return false
+//  }
+//}
+
+// Ver 4
 class Solution {
   func containsDuplicate(_ nums: [Int]) -> Bool {
-    return Set(nums).count != nums.count
+    var dict = [Int: Int]()
+    
+    for num in nums {
+      if dict[num] != nil {
+        return true
+      } else {
+        dict[num] = 1
+      }
+    }
+    
+    return false
   }
 }
 
